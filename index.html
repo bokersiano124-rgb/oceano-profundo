@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Océano Profundo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/diapositivas.css">
+</head>
+<body>
+<div id="visor">
+<div id="escenario">
+
+  <div id="fondo">
+    <div id="fondo-color"></div>
+    <div id="rayos"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div id="brillo"></div>
+    <div id="superficie">
+      <svg viewBox="0 0 1920 1100" width="1920" height="1100">
+        <defs>
+          <linearGradient id="g-cielo" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7fcdef"/>
+            <stop offset=".75" stop-color="#d9f3fb"/>
+            <stop offset="1" stop-color="#f4fcff"/>
+          </linearGradient>
+        </defs>
+        <path id="ola" fill="url(#g-cielo)" d=""/>
+        <path id="ola-brillo" fill="none" stroke="#ffffff" stroke-width="5" stroke-opacity=".9" d=""/>
+      </svg>
+    </div>
+    <canvas id="particulas" width="1920" height="1080"></canvas>
+  </div>
+
+  <div id="bat">
+    <div id="bat-flota">
+      <div id="bat-cable"></div>
+      <div id="bat-haz"></div>
+      <svg id="bat-cuerpo" viewBox="0 0 320 180" width="320" height="180">
+        <rect x="14" y="72" width="34" height="46" rx="8" fill="#1d2a33"/>
+        <rect x="5" y="64" width="13" height="62" rx="5" fill="#2c3b46"/>
+        <rect x="40" y="52" width="230" height="96" rx="48" fill="#FFC531"/>
+        <path d="M44 114 H266 A48 48 0 0 1 222 148 H88 A48 48 0 0 1 44 114 Z" fill="#E5A51C"/>
+        <rect x="116" y="27" width="80" height="34" rx="12" fill="#FFC531"/>
+        <rect x="150" y="9" width="8" height="22" rx="3" fill="#1d2a33"/>
+        <rect x="62" y="90" width="112" height="10" rx="5" fill="#1d2a33" opacity=".85"/>
+        <circle cx="222" cy="94" r="31" fill="#1d2a33"/>
+        <circle cx="222" cy="94" r="22" fill="#0b4f78"/>
+        <path d="M207 87 A16 16 0 0 1 222 75" stroke="#bfe9ff" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <rect x="262" y="117" width="22" height="15" rx="5" fill="#1d2a33"/>
+        <circle cx="284" cy="124.5" r="6.5" fill="#fff6d6"/>
+        <path d="M84 148 V163 M226 148 V163 M66 164 H246" stroke="#1d2a33" stroke-width="7" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="camara">
+
+    <!-- 01 · PORTADA -->
+    <section class="diapo" id="d01">
+      <div class="portada">
+        <span class="p-el acento">el</span>
+        <h1 class="mega p-oceano" data-split="letras">Océano</h1>
+        <h1 class="mega p-profundo eco" data-eco="3"><span class="m"><span class="i foto-texto">Profundo</span></span></h1>
+      </div>
+      <p class="p-sub" data-split="luz">Un viaje desde la superficie hasta el punto más profundo conocido.</p>
+      <div class="burbujas"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <!-- 02 · 71 % -->
+    <section class="diapo" id="d02">
+      <div class="anillo71">
+        <svg viewBox="0 0 600 600" width="600" height="600">
+          <defs>
+            <linearGradient id="g-anillo" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3CF2E4"/>
+              <stop offset="1" stop-color="#2D7CF6"/>
+            </linearGradient>
+          </defs>
+          <circle class="pista" cx="300" cy="300" r="270"/>
+          <circle class="valor" cx="300" cy="300" r="270"/>
+        </svg>
+        <div class="num"><span class="mega n71">71</span><span class="mega pct">%</span></div>
+        <div class="pie">de la superficie<br>del planeta</div>
+      </div>
+      <div class="d02-der">
+        <p class="frase" data-split="luz">Los océanos cubren el <b>71 %</b> del planeta… y aún hay muchas partes <em class="acento">sin explorar</em> directamente.</p>
+        <span class="etiqueta">¿Qué lo dificulta?</span>
+        <div class="pildoras obst">
+          <span class="pild" data-ico="sol">Falta de luz solar</span>
+          <span class="pild" data-ico="frio">Bajas temperaturas</span>
+          <span class="pild" data-ico="presion">Presión del agua</span>
+        </div>
+        <div class="cinco">
+          <div class="barras"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="txt"><span class="mega" data-split="letras">5 zonas</span><span class="acento">según su profundidad</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · LAS 5 ZONAS -->
+    <section class="diapo" id="d03">
+      <div class="cab">
+        <span class="etiqueta">El mar se divide en</span>
+        <h2 class="tit"><span class="mega" data-split="letras">5 zonas</span> <span class="acento" data-split="palabras">según su profundidad</span></h2>
+      </div>
+      <ol class="lista-zonas">
+        <li><i class="fila"></i><span class="n">01</span><span class="nom mega" data-split="palabras">Epipelágica</span><span class="rango">0 – 200 m</span><span class="flecha">→</span></li>
+        <li><i class="fila"></i><span class="n">02</span><span class="nom mega" data-split="palabras">Mesopelágica</span><span class="rango">200 – 1.000 m</span><span class="flecha">→</span></li>
+        <li><i class="fila"></i><span class="n">03</span><span class="nom mega" data-split="palabras">Batipelágica</span><span class="rango">1.000 – 4.000 m</span><span class="flecha">→</span></li>
+        <li><i class="fila"></i><span class="n">04</span><span class="nom mega" data-split="palabras">Abisopelágica</span><span class="rango">4.000 – 6.000 m</span><span class="flecha">→</span></li>
+        <li><i class="fila"></i><span class="n">05</span><span class="nom mega" data-split="palabras">Hadal</span><span class="rango">más de 6.000 m</span><span class="flecha">→</span></li>
+      </ol>
+    </section>
+
+    <!-- 04 · EPIPELÁGICA -->
+    <section class="diapo zona" id="d04">
+      <div class="z-cab"><span class="etiqueta">Zona 01 / 05</span><span class="z-rango">0 – 200 m</span></div>
+      <h2 class="mega z-nom eco" data-eco="2"><span class="m"><span class="i">Epipelágica</span></span></h2>
+      <div class="z-luz"><span class="medida"><i class="llena"></i></span><span class="txt">Llega suficiente <em class="acento">luz solar</em></span></div>
+      <div class="z-fauna">
+        <figure class="animal" data-ani="delfin"><figcaption>Delfines</figcaption></figure>
+        <figure class="animal" data-ani="tiburon"><figcaption>Tiburones</figcaption></figure>
+        <figure class="animal" data-ani="tortuga"><figcaption>Tortugas marinas</figcaption></figure>
+        <figure class="animal" data-ani="pez"><figcaption>Muchos peces</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 05 · MESOPELÁGICA -->
+    <section class="diapo zona" id="d05">
+      <div class="z-cab"><span class="etiqueta">Zona 02 / 05</span><span class="z-rango">200 – 1.000 m</span></div>
+      <h2 class="mega z-nom eco" data-eco="2"><span class="m"><span class="i">Mesopelágica</span></span></h2>
+      <div class="z-luz"><span class="medida"><i class="media"></i></span><span class="txt">La luz <em class="acento">disminuye</em> mucho</span></div>
+      <div class="z-fauna">
+        <figure class="animal brilla" data-ani="linterna"><figcaption>Peces linterna</figcaption></figure>
+        <figure class="animal" data-ani="calamar"><figcaption>Algunos calamares</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 06 · BATIPELÁGICA -->
+    <section class="diapo zona" id="d06">
+      <div class="z-cab"><span class="etiqueta">Zona 03 / 05</span><span class="z-rango">1.000 – 4.000 m</span></div>
+      <h2 class="mega z-nom eco" data-eco="2"><span class="m"><span class="i">Batipelágica</span></span></h2>
+      <div class="z-luz"><span class="medida"><i class="nada"></i></span><span class="txt">Ya <em class="acento">no llega</em> la luz del Sol</span></div>
+      <div class="z-fauna">
+        <figure class="animal foto-animal"><img src="img/rape-abisal.jpg" alt="Pez pescador"><figcaption>Pez pescador</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 07 · ABISOPELÁGICA -->
+    <section class="diapo zona" id="d07">
+      <div class="z-cab"><span class="etiqueta">Zona 04 / 05</span><span class="z-rango">4.000 – 6.000 m</span></div>
+      <h2 class="mega z-nom eco" data-eco="2"><span class="m"><span class="i">Abisopelágica</span></span></h2>
+      <div class="pildoras z-cond">
+        <span class="pild" data-ico="frio">Temperaturas muy bajas</span>
+        <span class="pild" data-ico="presion">Presión elevada</span>
+      </div>
+      <div class="z-fauna">
+        <figure class="animal" data-ani="pepino"><figcaption>Pepinos de mar</figcaption></figure>
+        <figure class="animal" data-ani="cangrejo"><figcaption>Algunos crustáceos</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 08 · HADAL -->
+    <section class="diapo zona" id="d08">
+      <div class="z-cab"><span class="etiqueta">Zona 05 / 05</span><span class="z-rango">más de 6.000 m</span></div>
+      <h2 class="mega z-nom eco" data-eco="2"><span class="m"><span class="i">Hadal</span></span></h2>
+      <div class="pildoras z-cond">
+        <span class="pild" data-ico="presion">Fosas oceánicas</span>
+        <span class="pild" data-ico="presion">Presiones extremas</span>
+      </div>
+      <div class="z-fauna">
+        <figure class="animal grande" data-ani="anfipodo"><figcaption>Anfípodos<small>pequeños crustáceos adaptados a la presión extrema</small></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 09 · CONDICIONES -->
+    <section class="diapo" id="d09">
+      <h2 class="tit"><span class="acento" data-split="palabras">A medida que descendemos,</span><span class="mega" data-split="letras">todo cambia</span></h2>
+      <div class="baldosas">
+        <article class="bal b-luz">
+          <svg class="graf" viewBox="0 0 300 200">
+            <defs><linearGradient id="g-haz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3c4" stop-opacity=".9"/><stop offset="1" stop-color="#fff3c4" stop-opacity="0"/></linearGradient></defs>
+            <rect class="agua" x="40" y="30" width="220" height="166" rx="14"/>
+            <path class="haz" d="M128 30 L172 30 L214 128 L86 128 Z" fill="url(#g-haz)"/>
+            <circle class="sol" cx="150" cy="30" r="20"/>
+            <line class="corte" x1="40" y1="128" x2="260" y2="128"/>
+            <text class="cota" x="250" y="150" text-anchor="end">1.000 m</text>
+          </svg>
+          <b class="dato mega">Sin luz</b>
+          <p>por debajo de los 1.000&nbsp;m</p>
+        </article>
+        <article class="bal b-pres">
+          <svg class="graf" viewBox="0 0 300 200">
+            <g class="capas">
+              <rect x="70" y="20" width="160" height="26" rx="6"/><rect x="70" y="52" width="160" height="26" rx="6"/><rect x="70" y="84" width="160" height="26" rx="6"/><rect x="70" y="116" width="160" height="26" rx="6"/><rect x="70" y="148" width="160" height="26" rx="6"/>
+            </g>
+            <g class="etq"><text x="150" y="38">+1 atm</text><text x="150" y="70">+1 atm</text><text x="150" y="102">+1 atm</text><text x="150" y="134">+1 atm</text><text x="150" y="166">+1 atm</text></g>
+            <g class="regla10"><text x="58" y="38">10 m</text><text x="58" y="70">20 m</text><text x="58" y="102">30 m</text><text x="58" y="134">40 m</text><text x="58" y="166">50 m</text></g>
+          </svg>
+          <b class="dato mega">+1 atm</b>
+          <p>por cada 10&nbsp;m que descendemos</p>
+        </article>
+        <article class="bal b-frio">
+          <svg class="graf" viewBox="0 0 300 200">
+            <rect class="tubo" x="136" y="14" width="28" height="150" rx="14"/>
+            <circle class="bulbo" cx="150" cy="170" r="24"/>
+            <rect class="mercurio" x="143" y="128" width="14" height="42" rx="7"/>
+            <g class="marcas"><line x1="170" y1="40" x2="186" y2="40"/><line x1="170" y1="70" x2="182" y2="70"/><line x1="170" y1="100" x2="182" y2="100"/><line x1="170" y1="130" x2="186" y2="130"/></g>
+            <text class="cota" x="194" y="137">4 °C</text>
+          </svg>
+          <b class="dato mega">≈ 4 °C</b>
+          <p>en muchas regiones</p>
+        </article>
+        <article class="bal b-comida">
+          <svg class="graf" viewBox="0 0 300 200">
+            <g class="nieve"><circle cx="80" cy="10" r="4"/><circle cx="120" cy="10" r="3"/><circle cx="160" cy="10" r="4.5"/><circle cx="200" cy="10" r="3"/><circle cx="230" cy="10" r="4"/><circle cx="100" cy="10" r="3.5"/><circle cx="180" cy="10" r="3"/><circle cx="140" cy="10" r="4"/></g>
+            <path class="fondo-mar" d="M20 176 C70 160 110 186 150 172 S240 160 280 176 V200 H20 Z"/>
+            <g class="bicho" transform="translate(104 128) scale(.42)"></g>
+          </svg>
+          <b class="dato mega">Poco alimento</b>
+          <p>dependen de restos que caen de arriba</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 · RAPE ABISAL -->
+    <section class="diapo especie" id="d10">
+      <div class="foto f10"><img src="img/rape-abisal.jpg" alt="Melanocetus johnsonii"></div>
+      <i class="cebo"></i>
+      <div class="col">
+        <span class="cientifico acento">Melanocetus johnsonii</span>
+        <h2 class="mega nom" data-split="palabras">Rape abisal</h2>
+        <span class="alias">o pez diablo negro</span>
+        <div class="tallas">
+          <div class="talla t-h"><span class="etq">Hembra</span><span class="barra"><i></i></span><b><span class="cm">18</span> cm</b></div>
+          <div class="talla t-m"><span class="etq">Macho</span><span class="barra"><i></i></span><b><span class="cm">3</span> cm</b></div>
+        </div>
+        <div class="rango-prof"><span class="etiqueta">Vive entre</span><b class="mega">200 – 4.000 m</b><span class="txt">zona batipelágica y abisal</span></div>
+        <div class="pildoras">
+          <span class="pild">Cuerpo negro o marrón oscuro</span>
+          <span class="pild">Dientes afilados</span>
+          <span class="pild pild-luz">Ilicium: “caña de pescar” bioluminiscente</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · PEZ DUENDE -->
+    <section class="diapo especie" id="d11">
+      <div class="col">
+        <span class="cientifico acento">Macropinna microstoma</span>
+        <h2 class="mega nom" data-split="palabras">Pez duende</h2>
+        <span class="alias">o pez de cabeza transparente</span>
+        <div class="datos11">
+          <div class="dato-c"><b class="mega">≈ 600 m</b><span>o más de profundidad</span></div>
+          <div class="dato-c"><b class="mega">2008</b><span>estudio de su anatomía</span></div>
+        </div>
+        <p class="nota" data-split="luz">Allí la luz es escasa… y el alimento también.</p>
+      </div>
+      <div class="foto f11"><div class="zoom"><img src="img/pez-duende.jpg" alt="Macropinna microstoma"></div></div>
+      <svg class="llamadas" viewBox="0 0 1920 1080">
+        <path d="M1295 482 H1526"/>
+        <path d="M1278 556 H1526"/>
+        <path d="M1329 656 H1526"/>
+        <circle cx="1295" cy="482" r="9"/><circle cx="1278" cy="556" r="9"/><circle cx="1329" cy="656" r="9"/>
+      </svg>
+      <span class="rot r1">Cúpula transparente</span>
+      <span class="rot r2">Ojos tubulares</span>
+      <span class="rot r3">Falsos ojos</span>
+      <span class="rot r4">Tamaño</span>
+    </section>
+
+    <!-- 12 · CALAMAR VAMPIRO -->
+    <section class="diapo especie" id="d12">
+      <div class="foto f12"><img src="img/calamar-vampiro.jpg" alt="Vampyroteuthis infernalis"></div>
+      <div class="col">
+        <span class="cientifico acento">Vampyroteuthis infernalis</span>
+        <h2 class="mega nom" data-split="palabras">Calamar vampiro</h2>
+        <div class="mezcla">
+          <span class="circ c1">Pulpo</span><span class="circ c2">Calamar</span>
+          <span class="txt">rasgos únicos de ambos y adaptaciones extremas</span>
+        </div>
+        <div class="regla30">
+          <div class="pista"><i class="rango"></i></div>
+          <div class="marcas"><span>0</span><span>10</span><span>20</span><span>30 cm</span></div>
+          <b class="mega">28 – 30 cm</b>
+        </div>
+        <div class="dos-col">
+          <div><span class="etiqueta">Por fuera</span><ul><li>Ojos gigantes</li><li>Aletas en la cabeza</li><li>Brazos y membrana</li><li>Filamentos sensoriales</li></ul></div>
+          <div><span class="etiqueta">Por dentro</span><ul><li>Sin bolsa de tinta</li><li>Metabolismo lento</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · ISÓPODO GIGANTE -->
+    <section class="diapo especie" id="d13">
+      <div class="foto f13"><img src="img/isopodo-gigante.jpg" alt="Bathynomus giganteus"></div>
+      <div class="partes">
+        <div class="parte p1"><i></i><span>Cabeza <em>cefalón</em></span></div>
+        <div class="parte p2"><i></i><span>Tórax <em>pereon</em></span></div>
+        <div class="parte p3"><i></i><span>Abdomen <em>pleon</em></span></div>
+      </div>
+      <div class="col">
+        <span class="cientifico acento">Bathynomus giganteus</span>
+        <h2 class="mega nom" data-split="palabras">Isópodo gigante</h2>
+        <span class="alias">conocido como isópodo gigante antártico</span>
+        <div class="talla9"><b class="mega"><span class="cm">9</span> cm</b><span>de longitud máxima</span></div>
+        <div class="frenos">
+          <span class="fr" data-ico="oxigeno">Poco oxígeno</span>
+          <span class="fr" data-ico="sol">Poca luz</span>
+          <span class="fr" data-ico="frio">Agua helada</span>
+          <span class="flecha">→</span>
+          <span class="res">pueden hacer que <em class="acento">no crezcan mucho</em></span>
+        </div>
+        <div class="pildoras">
+          <span class="pild">Exoesqueleto</span>
+          <span class="pild">14 patas marchadoras</span>
+          <span class="pild">Apéndices nadadores y branquias</span>
+          <span class="pild">Ojos</span>
+          <span class="pild">Antenas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 · BIOLUMINISCENCIA -->
+    <section class="diapo" id="d14">
+      <div class="medusa"><img src="img/medusa.jpg" alt="Medusa bioluminiscente"></div>
+      <h2 class="mega tit" data-split="letras">Bioluminiscencia</h2>
+      <p class="def" data-split="luz">Capacidad de los seres vivos de producir <em class="acento">su propia luz</em> con reacciones químicas. Es común en las profundidades.</p>
+      <div class="ecuacion">
+        <div class="nodo n-a"><b>Luciferina</b><span>molécula que al oxidarse emite luz</span></div>
+        <span class="op">+</span>
+        <div class="nodo n-b"><b>O₂</b><span>oxígeno</span></div>
+        <div class="flecha-cat"><svg viewBox="0 0 260 60"><path d="M6 30 H240"/><path d="M226 16 L246 30 L226 44"/></svg><span>Luciferasa<small>enzima que acelera la reacción</small></span></div>
+        <div class="nodo n-luz"><b>Luz</b></div>
+      </div>
+      <div class="usos">
+        <span class="etiqueta">¿Para qué la usan?</span>
+        <div class="uso"><span class="n">01</span><b>Atraer presas</b></div>
+        <div class="uso"><span class="n">02</span><b>Defensa y distracción</b></div>
+        <div class="uso"><span class="n">03</span><b>Camuflaje</b><small>contrailuminación</small></div>
+      </div>
+    </section>
+
+    <!-- 15 · LO QUE NO CONOCEMOS -->
+    <section class="diapo" id="d15">
+      <div class="fondo-foto"><img src="img/grieta-luz.jpg" alt=""></div>
+      <div class="velo15"></div>
+      <div class="col">
+        <span class="etiqueta">Lo que todavía no conocemos</span>
+        <b class="mega cifra">≈ <span class="num">2.000.000</span></b>
+        <span class="txt">de especies marinas en el planeta, según los científicos</span>
+        <div class="pct10"><b class="mega"><span class="num">10</span> %</b><span>apenas se ha descrito</span></div>
+      </div>
+      <div class="rejilla"></div>
+      <div class="falta">
+        <span class="etiqueta">La mayor parte por descubrir</span>
+        <div class="pildoras">
+          <span class="pild">Invertebrados</span>
+          <span class="pild">Virus marinos</span>
+          <span class="pild">Bacterias</span>
+          <span class="pild pild-luz">Organismos con bioluminiscencia y resistencia a presiones aplastantes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16 · FUENTES HIDROTERMALES -->
+    <section class="diapo" id="d16">
+      <h2 class="mega tit"><span data-split="letras">Fuentes</span><br><span data-split="letras">hidrotermales</span></h2>
+      <p class="def" data-split="luz">Aberturas en el fondo del océano, cerca de zonas volcánicas, por donde sale <em class="acento">agua caliente</em> rica en minerales.</p>
+      <div class="foto f16"><img src="img/hidrotermal.jpg" alt="Fuente hidrotermal"></div>
+      <svg class="ciclo" viewBox="0 0 1000 860">
+        <defs>
+          <linearGradient id="g-corteza" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262c38"/><stop offset="1" stop-color="#3b1f1a"/></linearGradient>
+          <radialGradient id="g-magma" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#ffd166"/><stop offset=".45" stop-color="#ff6a3d"/><stop offset="1" stop-color="#7a1608" stop-opacity="0"/></radialGradient>
+        </defs>
+        <path class="corteza" d="M0 330 C120 318 220 342 340 330 S500 318 580 326 S860 342 1000 330 V860 H0 Z"/>
+        <ellipse class="magma" cx="470" cy="800" rx="460" ry="120"/>
+        <path class="grieta" d="M200 334 L216 420 L190 500 L222 590 L204 700"/>
+        <path class="grieta" d="M340 330 L328 430 L360 520 L338 620 L366 720"/>
+        <path class="chimenea" d="M540 330 L558 172 C562 152 598 152 602 172 L620 330 Z"/>
+        <path class="flujo f1" d="M110 170 C150 220 190 280 204 340 L212 430 L196 510 L218 600 L206 700"/>
+        <path class="flujo f2" d="M206 700 C290 770 440 780 530 750 C560 740 580 700 580 640"/>
+        <path class="flujo f3" d="M580 640 L580 330 L580 180"/>
+        <g class="pluma"><circle cx="580" cy="150" r="22"/><circle cx="562" cy="112" r="28"/><circle cx="598" cy="80" r="34"/><circle cx="574" cy="40" r="40"/><circle cx="612" cy="6" r="44"/></g>
+        <g class="paso p1"><circle cx="110" cy="170" r="32"/><text x="110" y="182">1</text></g>
+        <g class="paso p2"><circle cx="330" cy="772" r="32"/><text x="330" y="784">2</text></g>
+        <g class="paso p3"><circle cx="660" cy="500" r="32"/><text x="660" y="512">3</text></g>
+        <g class="paso p4"><circle cx="680" cy="130" r="32"/><text x="680" y="142">4</text></g>
+      </svg>
+      <ol class="pasos">
+        <li class="ps1"><b>01</b>El agua entra por grietas de la corteza</li>
+        <li class="ps2"><b>02</b>Se calienta con rocas calientes y magma</li>
+        <li class="ps3"><b>03</b>Absorbe minerales y sustancias químicas</li>
+        <li class="ps4"><b>04</b>Sale por el fondo en columnas de agua caliente</li>
+      </ol>
+    </section>
+
+    <!-- 17 · ORGANISMOS -->
+    <section class="diapo" id="d17">
+      <div class="cab17">
+        <h2 class="mega tit" data-split="letras">Organismos</h2>
+        <span class="acento sub" data-split="palabras">que viven alrededor de las fuentes</span>
+      </div>
+      <div class="foto f17"><img src="img/organismos.jpg" alt="Organismos de una fuente hidrotermal"></div>
+      <div class="tarjetas">
+        <div class="tarj t1" data-ico="gusano"><b>Gusanos tubícolas gigantes</b></div>
+        <div class="tarj t2" data-ico="almeja"><b>Almejas y mejillones</b></div>
+        <div class="tarj t3" data-ico="camaron"><b>Camarones y cangrejos</b></div>
+        <div class="tarj t4" data-ico="caracol"><b>Caracoles y microorganismos</b></div>
+      </div>
+    </section>
+
+    <!-- 18 · FOSA DE LAS MARIANAS -->
+    <section class="diapo" id="d18">
+      <div class="fondo-foto"><img src="img/fosa-marianas.jpg" alt=""></div>
+      <div class="velo18"></div>
+      <div class="col">
+        <h2 class="mega tit"><span data-split="letras">Fosa de las</span><br><span data-split="letras">Marianas</span></h2>
+        <p class="def" data-split="luz">Una enorme depresión alargada y profunda del fondo del <em class="acento">océano Pacífico</em>.</p>
+        <span class="etiqueta">Está formada por</span>
+        <div class="pildoras">
+          <span class="pild">Rocas de la corteza oceánica</span>
+          <span class="pild">Sedimentos acumulados</span>
+          <span class="pild">Minerales de la actividad geológica</span>
+        </div>
+      </div>
+      <div class="subduccion">
+        <svg viewBox="0 0 900 470">
+          <defs><clipPath id="clip-sub"><rect x="0" y="0" width="900" height="470"/></clipPath></defs>
+          <g clip-path="url(#clip-sub)">
+            <rect class="agua" x="0" y="0" width="900" height="150"/>
+            <g class="placa-pac"><path d="M-80 150 L470 150 C520 150 560 170 600 220 L760 470 L640 470 L520 280 C500 250 480 236 440 236 L-80 236 Z"/></g>
+            <path class="placa-mar" d="M478 150 C520 140 560 128 640 132 L900 132 L900 470 L780 470 L620 250 C590 205 540 172 478 150 Z"/>
+            <path class="fosa" d="M440 150 L478 150 L462 196 Z"/>
+          </g>
+          <path class="mov" d="M120 194 H360"/><path class="mov punta" d="M346 182 L366 194 L346 206"/>
+          <path class="mov" d="M600 300 L690 420"/><path class="mov punta" d="M672 418 L692 424 L690 402"/>
+          <text class="t-pac" x="60" y="282">Placa del Pacífico</text>
+          <text class="t-mar" x="880" y="112" text-anchor="end">Placa de las Marianas</text>
+          <text class="t-fosa" x="430" y="60" text-anchor="middle">Fosa</text>
+          <path class="guia" d="M436 70 L460 140"/>
+          <text class="t-sub" x="720" y="330">Subducción</text>
+        </svg>
+        <p class="pie">La placa del Pacífico se hunde debajo de la placa de las Marianas.</p>
+      </div>
+    </section>
+
+    <!-- 19 · ABISMO CHALLENGER -->
+    <section class="diapo" id="d19">
+      <div class="ojo"><img src="img/challenger.jpg" alt=""></div>
+      <div class="centro">
+        <span class="etiqueta">Abismo Challenger</span>
+        <b class="mega cifra"><span class="num">10.935</span><small>m</small></b>
+        <span class="sub">≈ 10,9 km · el punto <em class="acento">más profundo</em> conocido</span>
+      </div>
+      <div class="ubica">
+        <svg viewBox="0 0 520 170"><path class="perfil" d="M0 30 C80 30 120 34 170 60 C220 90 250 150 300 156 C340 160 370 110 410 70 C450 40 480 32 520 30"/><circle class="pin" cx="300" cy="156" r="9"/><circle class="onda" cx="300" cy="156" r="9"/></svg>
+        <p><b>Extremo sur</b> de la fosa de las Marianas · océano Pacífico</p>
+      </div>
+      <div class="nombre">
+        <span class="etiqueta">¿Por qué “Challenger”?</span>
+        <div class="barco" data-ico="barco"><b>HMS Challenger</b></div>
+        <p>Barco británico cuya expedición midió la profundidad de la zona en <b class="anio">1875</b>.</p>
+      </div>
+    </section>
+
+    <!-- 20 · CÓMO EXPLORAMOS -->
+    <section class="diapo" id="d20">
+      <h2 class="mega tit"><span data-split="palabras">¿Cómo exploramos</span><br><span data-split="palabras">las profundidades?</span></h2>
+      <div class="chevrones">
+        <div class="chev c-sub"><img src="img/submarino.jpg" alt="Submarino"></div>
+        <div class="chev c-rob"><img src="img/robot-submarino.jpg" alt="Robot submarino"></div>
+      </div>
+      <div class="flechitas"><i></i><i></i><i></i></div>
+      <div class="txt20 t-sub"><b class="mega">Submarinos</b><p>Se sumergen a grandes profundidades y <em class="acento">transportan científicos</em>.</p></div>
+      <div class="txt20 t-rob"><b class="mega">Robots submarinos</b><p>Se controlan desde barcos. Tienen <em class="acento">cámaras, luces y brazos mecánicos</em>.</p></div>
+    </section>
+
+    <!-- 21 · ROV vs AUV -->
+    <section class="diapo" id="d21">
+      <span class="etiqueta et21">Tipos de robots submarinos</span>
+      <div class="linea-mar"></div>
+      <div class="barco21" data-ico="barco"></div>
+      <svg class="cables" viewBox="0 0 1920 1080">
+        <path class="cable" d="M520 236 C520 300 470 320 480 384"/>
+        <path class="ruta" d="M1130 600 A300 210 0 1 1 1730 600 A300 210 0 1 1 1130 600"/>
+        <circle class="wp" cx="1130" cy="600" r="9"/><circle class="wp" cx="1430" cy="390" r="9"/><circle class="wp" cx="1730" cy="600" r="9"/><circle class="wp" cx="1430" cy="810" r="9"/>
+      </svg>
+      <div class="foto f-rov"><img src="img/rov.jpg" alt="ROV"></div>
+      <div class="foto f-auv"><img src="img/auv.jpg" alt="AUV"></div>
+      <i class="punto-ruta"></i>
+      <div class="vs">VS</div>
+      <div class="txt21 t-rov"><b class="mega">ROV</b><span class="acento">vehículo operado remotamente</span><p>Controlado desde un barco <b>mediante cables</b>.</p></div>
+      <div class="txt21 t-auv"><b class="mega">AUV</b><span class="acento">vehículo submarino autónomo</span><p>Misiones programadas <b>sin conexión</b> a un barco.</p></div>
+    </section>
+
+    <!-- 22 · CIERRE -->
+    <section class="diapo" id="d22">
+      <div class="tit-wrap"><h2 class="mega tit eco" data-eco="2"><span class="m"><span class="i">Gracias</span></span></h2></div>
+      <div class="resumen">
+        <div class="res"><b class="mega">71 %</b><span>del planeta es océano</span></div>
+        <div class="res"><b class="mega">5</b><span>zonas de profundidad</span></div>
+        <div class="res"><b class="mega">10.935 m</b><span>abismo Challenger</span></div>
+        <div class="res"><b class="mega">≈ 10 %</b><span>de especies descritas</span></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="barrido"></div>
+  <div id="oscuro"></div>
+
+  <div id="medidor">
+    <svg id="regla" width="40" height="1480"></svg>
+    <div class="lectura"><span class="etq">Profundidad</span><span class="cifra"><span class="num mega">0</span><span class="uni">m</span></span><span class="zona">Superficie</span></div>
+  </div>
+
+  <div id="hud">
+    <div class="marca"><i></i>El océano profundo</div>
+    <div class="cont"><span id="hud-n">01</span><span class="sep"></span><span id="hud-t">22</span></div>
+    <div id="hud-barra"><i></i></div>
+  </div>
+
+</div>
+<nav id="controles" aria-label="Navegación de diapositivas">
+  <button id="btn-ant" type="button" aria-label="Diapositiva anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>Anterior</span></button>
+  <span id="ctl-num" aria-live="polite">01 / 22</span>
+  <button id="btn-sig" type="button" class="principal" aria-label="Diapositiva siguiente"><span>Siguiente</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button id="btn-pant" type="button" aria-label="Pantalla completa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+</nav>
+</div>
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/nucleo.js"></script>
+<script src="js/graficos.js"></script>
+<script src="js/escena.js"></script>
+<script src="js/diapositivas.js"></script>
+<script src="js/presentacion.js"></script>
+</body>
+</html>

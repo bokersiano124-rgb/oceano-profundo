@@ -1,0 +1,28 @@
+EL OCÉANO PROFUNDO · presentación animada 16:9 (1920 × 1080)
+
+CÓMO PRESENTAR
+  Abre index.html en Chrome o Edge (necesita internet solo para las fuentes).
+  → / Espacio / Enter / clic ......... siguiente
+  ← / Retroceso / clic en el borde izq. anterior
+  F .................................. pantalla completa
+  index.html#10 ...................... abre directo en la diapositiva 10
+
+ARCHIVOS
+  index.html ............ las 22 diapositivas (marcado)
+  css/base.css .......... colores, tipografía, píldoras, ecos, batiscafo, HUD
+  css/diapositivas.css .. maquetación de cada diapositiva
+  js/nucleo.js .......... utilidades de animación (máscaras, eco, contadores, cadena, FLIP)
+  js/graficos.js ........ ilustraciones SVG de animales e íconos
+  js/escena.js .......... fondo por profundidad, nieve marina, rayos de luz, superficie, profundímetro
+  js/diapositivas.js .... entrada y transición de cada diapositiva + notas del orador
+  js/presentacion.js .... motor: navegación, cámara, transiciones, modo de grabación
+  img/ .................. fotos recortadas de tus capturas
+  videos/ ............... un MP4 por diapositiva (cada uno empieza donde termina el anterior)
+
+VOLVER A GRABAR LOS VIDEOS
+  node render/grabar.mjs video 1 22 30      (desde, hasta, fps)
+  node render/grabar.mjs fotos 0,5 1,3      (fotos de revisión: diapositivas, segundos)
+
+VIDEOS EN CANVA
+  Arrastra cada MP4 de la carpeta videos/ sobre su página (reemplaza la imagen),
+  luego Reproducción → "Reproducir automáticamente" y deja "Repetir" apagado.
